@@ -6,10 +6,15 @@ Requires [torch paths](https://github.com/torch/paths) rock, penlight [stringx](
 
 Spider has three parts, the crawler, parser, and extractor. For simple websites curl works well enough, but to scrape some js heavy sites I recommend switching to headless-chrome.
 
-The code block below represents insallation steps towards installing lua-spider.
+The code block below represents insallation steps towards installing lua-spider. This will run in the following order:
+
+1. Install gumbo from LuaRocks.
+2. Install Lua cURL from LuaRocks with cURL's directory included.
+3. Install Lua Chrome from GitHub
+4. Install Lua Spider from GitHub
 
 ```bash
-luarocks install gumbo && luarocks install lua-curl CURL_INCDIR=$(dirname $(dirname $(find /usr -name 'curl.h'))) && luarocks install "https://github.com/okpanic/lua-chrome/raw/master/lua-chrome-1.0-1.src.rock"
+luarocks install gumbo && luarocks install lua-curl CURL_INCDIR=$(dirname $(dirname $(find /usr -name 'curl.h'))) && luarocks install "https://github.com/okpanic/lua-chrome/raw/master/lua-chrome-1.0-1.src.rock && luarocks install "https://github.com/okpanic/lua-spider/raw/master/lua-spider-1.0-1.src.rock""
 ```
 
 Simple example scraping a blog.
