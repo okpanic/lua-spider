@@ -1,4 +1,4 @@
-# lua-spider
+# lua-spider (obtusity's fork)
 
 A web scraper for lua. Content is downloaded with either curl or headless-chrome, and HTML is parsed with gumbo. Xpath like expressions are used to extract content from parsed documents.  
 
