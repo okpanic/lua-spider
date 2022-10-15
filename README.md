@@ -1,5 +1,7 @@
 # lua-spider (obtusity's fork)
 
+**This repository assumes you are running on Linux. If you're using Microsoft Windows, please use WSL!**
+
 A web scraper for lua. Content is downloaded with either curl or headless-chrome, and HTML is parsed with gumbo. Xpath like expressions are used to extract content from parsed documents.
 
 For the time being, I suggest reference to this repository until the pull request is accepted or until the original repository is modified.
