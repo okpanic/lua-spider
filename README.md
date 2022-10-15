@@ -1,37 +1,26 @@
+# lua-spider
+
 A web scraper for lua. Content is downloaded with either curl or headless-chrome, and HTML is parsed with gumbo. Xpath like expressions are used to extract content from parsed documents.  
 
 Requires [torch paths](https://github.com/torch/paths) rock, penlight [stringx](https://stevedonovan.github.io/Penlight/api/libraries/pl.stringx.html) and [file](https://stevedonovan.github.io/Penlight/api/libraries/pl.file.html), and either curl or chrome with the [lua-chrome](https://github.com/okpanic/lua-chrome) rock, and [lua-gumbo](https://github.com/craigbarnes/lua-gumbo).
 
 Spider has three parts, the crawler, parser, and extractor. For simple websites curl works well enough, but to scrape some js heavy sites I recommend switching to headless-chrome.
 
-Install gumbo
+The code block below represents insallation steps towards installing lua-spider.
 
 ```bash
-git clone https://github.com/google/gumbo-parser
-cd gumbo*
-sudo ./gumbo.sh
-sudo cp ./etc/profile.d/gumbolib.sh /etc/profile.d/
-source /etc/profile
-luarocks install gumbo
-```
-
-Install Lua-cURL, and lua-chrome.
-
-```lua
-luarocks install Lua-cURL
-luarocks install https://github.com/okpanic/lua-chrome/raw/master/lua-chrome-1.0-1.src.rock
-
+luarocks install gumbo && luarocks install lua-curl CURL_INCDIR=$(dirname $(dirname $(find /usr -name 'curl.h'))) && luarocks install "https://github.com/okpanic/lua-chrome/raw/master/lua-chrome-1.0-1.src.rock"
 ```
 
 Simple example scraping a blog.
 
 ```lua
-url = "http://quotes.toscrape.com/"
+local url = "http://quotes.toscrape.com/"
 
-spider = require'lua-spider':new()
-crawl = spider.assign.crawler("chrome")
-parse = spider.assign.parser()
-xpath = spider.assign.extractor()
+local spider = require("lua-spider"):new()
+local crawl = spider.assign.crawler("chrome")
+local parse = spider.assign.parser()
+local xpath = spider.assign.extractor()
 
 html = crawl(url)
 doc = parse(html) --this is the gumbo document tree
@@ -47,6 +36,7 @@ end
 ```
 
 Output will look like:
+
 ```lua
 {
   1 : 

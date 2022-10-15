@@ -1,34 +1,34 @@
-local stringx = require ("pl.stringx")
+local stringx = require("pl.stringx")
 local paths = require("paths")
 local file = require("pl.file")
 
 local bones = {}
 
-function bones.split( s, d )
-   return stringx.split(s, d)
+function bones.split(s, d)
+  return stringx.split(s, d)
 end
 
-function bones.trimwhitespace( s )
-   -- https://github.com/craigbarnes/lua-gumbo/blob/master/gumbo/dom/Document.lua
-   local whitespace = "[ \t\n\f\r]+"
-   local _trim = "^[ \t\n\f\r]*(.-)[ \t\n\f\r]*$"
-   s = tostring(s)
-   s = s:gsub(whitespace, " ")
-   s = s:gsub(_trim, "%1")
-   return s
+function bones.trimwhitespace(s)
+  -- https://github.com/craigbarnes/lua-gumbo/blob/master/gumbo/dom/Document.lua
+  local whitespace = "[ \t\n\f\r]+"
+  local _trim = "^[ \t\n\f\r]*(.-)[ \t\n\f\r]*$"
+  s = tostring(s)
+  s = s:gsub(whitespace, " ")
+  s = s:gsub(_trim, "%1")
+  return s
 end
 
 function bones.temppath()
-   return(paths.tmpname())
+  return (paths.tmpname())
 end
 
-function bones.writefile( f, c )
-   file.write(f, c)
-   return nil
+function bones.writefile(f, c)
+  file.write(f, c)
+  return nil
 end
 
-function bones.readfile( f )
-   return file.read(f)
+function bones.readfile(f)
+  return file.read(f)
 end
 
 ---+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -50,8 +50,8 @@ log.level = "trace"
 local modes = {
   { name = "trace", color = "\27[34m", },
   { name = "debug", color = "\27[36m", },
-  { name = "info",  color = "\27[32m", },
-  { name = "warn",  color = "\27[33m", },
+  { name = "info", color = "\27[32m", },
+  { name = "warn", color = "\27[33m", },
   { name = "error", color = "\27[31m", },
   { name = "fatal", color = "\27[35m", },
 }
@@ -93,10 +93,10 @@ for i, x in ipairs(modes) do
     local lineinfo = info.short_src .. ":" .. info.currentline
     -- Output to console
     print(string.format("%s[%-6s%s] %s",
-                        log.usecolor and x.color or "",
-                        lineinfo,
-                        log.usecolor and "\27[0m" or "",
-                        msg))
+      log.usecolor and x.color or "",
+      lineinfo,
+      log.usecolor and "\27[0m" or "",
+      msg))
     -- Output to log file
     if log.outfile then
       local fp = io.open(log.outfile, "a")
