@@ -1,6 +1,8 @@
 # lua-spider (obtusity's fork)
 
-A web scraper for lua. Content is downloaded with either curl or headless-chrome, and HTML is parsed with gumbo. Xpath like expressions are used to extract content from parsed documents.  
+A web scraper for lua. Content is downloaded with either curl or headless-chrome, and HTML is parsed with gumbo. Xpath like expressions are used to extract content from parsed documents.
+
+For the time being, I suggest reference to this repository until the pull request is accepted or until the original repository is modified.
 
 Requires [torch paths](https://github.com/torch/paths) rock, penlight [stringx](https://stevedonovan.github.io/Penlight/api/libraries/pl.stringx.html) and [file](https://stevedonovan.github.io/Penlight/api/libraries/pl.file.html), and either curl or chrome with the [lua-chrome](https://github.com/okpanic/lua-chrome) rock, and [lua-gumbo](https://github.com/craigbarnes/lua-gumbo).
 
