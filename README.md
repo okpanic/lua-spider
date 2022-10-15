@@ -16,7 +16,7 @@ The code block below represents insallation steps towards installing lua-spider.
 4. Install Lua Spider from GitHub
 
 ```bash
-luarocks install gumbo && luarocks install lua-curl CURL_INCDIR=$(dirname $(dirname $(find /usr -name 'curl.h'))) && luarocks install "https://github.com/okpanic/lua-chrome/raw/master/lua-chrome-1.0-1.src.rock && luarocks install "https://github.com/okpanic/lua-spider/raw/master/lua-spider-1.0-1.src.rock""
+luarocks install gumbo && luarocks install lua-curl CURL_INCDIR=$(dirname $(dirname $(find /usr -name 'curl.h'))) && luarocks install "https://github.com/okpanic/lua-chrome/raw/master/lua-chrome-1.0-1.src.rock" && luarocks install "https://github.com/okpanic/lua-spider/raw/master/lua-spider-1.0-1.src.rock"
 ```
 
 Simple example scraping a blog.
